@@ -62,12 +62,14 @@ bitflags! {
         const GEOMETRY = 0x0000_0008;
         const FRAGMENT = 0x0000_0010;
         const COMPUTE = 0x0000_0020;
-        const RAYGEN_BIT_NV = 256;
-        const ANY_HIT_BIT_NV = 512;
-        const CLOSEST_HIT_BIT_NV = 1024;
-        const MISS_BIT_NV = 2048;
-        const INTERSECTION_BIT_NV = 4096;
-        const CALLABLE_BIT_NV = 8192;
+        const TASK_NV = 0x0000_0040;
+        const MESH_NV = 0x0000_0080;
+        const RAYGEN_BIT_NV = 0x0000_0100;
+        const ANY_HIT_BIT_NV = 0x0000_0200;
+        const CLOSEST_HIT_BIT_NV = 0x0000_0400;
+        const MISS_BIT_NV = 0x0000_0800;
+        const INTERSECTION_BIT_NV = 0x0000_1000;
+        const CALLABLE_BIT_NV = 0x0000_2000;
     }
 }
 

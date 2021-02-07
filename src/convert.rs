@@ -21,7 +21,7 @@ pub(crate) fn ffi_to_entry_point(ffi_type: &ffi::SpvReflectEntryPoint) -> Reflec
             )
         }
         .iter()
-        .map(|var| ffi_to_interface_variable(var))
+        .map(|var| ffi_to_interface_variable(*var))
         .collect(),
         output_variables: unsafe {
             std::slice::from_raw_parts(
@@ -30,7 +30,7 @@ pub(crate) fn ffi_to_entry_point(ffi_type: &ffi::SpvReflectEntryPoint) -> Reflec
             )
         }
         .iter()
-        .map(|var| ffi_to_interface_variable(var))
+        .map(|var| ffi_to_interface_variable(*var))
         .collect(),
         descriptor_sets: unsafe {
             std::slice::from_raw_parts(
@@ -237,9 +237,6 @@ pub(crate) fn ffi_to_descriptor_type(
         }
         ffi::SpvReflectDescriptorType_SPV_REFLECT_DESCRIPTOR_TYPE_INPUT_ATTACHMENT => {
             ReflectDescriptorType::InputAttachment
-        }
-        ffi::SpvReflectDescriptorType_SPV_REFLECT_DESCRIPTOR_TYPE_ACCELERATION_STRUCTURE_NV => {
-            ReflectDescriptorType::AccelerationStructureNV
         }
         _ => unimplemented!(),
     }
